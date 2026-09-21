@@ -1,3 +1,5 @@
+package Level1;
+
 public class Monster {
     String name;
     String type;

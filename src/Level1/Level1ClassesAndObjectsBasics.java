@@ -1,3 +1,5 @@
+package Level1;
+
 import java.util.Scanner;
 public class Level1ClassesAndObjectsBasics {
 
@@ -6,7 +8,8 @@ public class Level1ClassesAndObjectsBasics {
     Pokemon pokemon[] = new Pokemon[5];
     Car car[] = new Car[4];
     Monster monster[] = new Monster[5];
-
+    Hero team1[] = new Hero[3];
+    Hero team2[] = new Hero[3];
 
     void main() {
         /*
@@ -131,31 +134,60 @@ public class Level1ClassesAndObjectsBasics {
         makeMonster(monster, 3, "Jkuasd", "Water", 200);
         makeMonster(monster, 4, "Jkuasd", "water", 200);
 
-        attackPokemon(pokemon);
+        team1[0] = new Hero("Ame", 100, 20, 10, 3);
+        team1[1] = new Hero("xnova", 100, 30, 10, 4);
+        team1[2] = new Hero("XSS", 100, 14, 10, 4);
+
+
+        team2[0] = new Hero("Amar", 100, 20, 10, 3);
+        team2[1] = new Hero("Malrine", 100, 30, 10, 4);
+        team2[2] = new Hero("Crit", 100, 14, 10, 4);
+
+        teamBattle(team1, team2);
+
+        printHeroStats(team2[1]);
 
     }
 
-
-    void attackPokemon(Pokemon[] team) {
-        while(team[0].hp > 0 && team[1].hp > 0) {
-            System.out.println(team[0].name + " attacks " + team[1].name);
-            team[1].hp -= team[0].level;
-            System.out.println(team[1].name + " has: " + team[1].hp + " HP");
-            System.out.println("Lost " + team[0].level + " hp");
-            if(isPokemonDead(team, 1)){
-                System.out.println(team[1].name + " Has won!!!!");
-                break;
-            }
-            System.out.println(team[1].name + " attacks " + team[0].name);
-            team[0].hp -= team[1].level;
-            System.out.println(team[0].name + "has: " + team[0].hp + " HP");
-            System.out.println("Lost " + team[1].level + " hp");
-            if(isPokemonDead(team, 0)) {
-                System.out.println(team[1].name + " Has won!!!!");
-                break;
+    void teamBattle (Hero[] t1, Hero[] t2) {
+        for (Hero attacker : t1){
+            for (Hero defender : t2) {
+                System.out.println(attacker.heroName + " Is attacking " + defender.heroName);
+                System.out.println(defender.heroName + " took " + damageCalculation(attacker.heroAttackPower, defender.heroDefense, defender.heroLevel));
+                defender.heroHP -= damageCalculation(attacker.heroAttackPower, defender.heroDefense, defender.heroLevel);
             }
         }
     }
+
+
+    void heroFight (Hero h1, Hero h2) {
+        System.out.println(h1.heroName + " Is attacking!");
+        System.out.println(h2.heroName + " took " + damageCalculation(h1.heroAttackPower, h2.heroDefense, h2.heroLevel) );
+        h2.heroHP -= damageCalculation(h1.heroAttackPower, h2.heroDefense, h2.heroLevel);
+    }
+
+    int damageCalculation(int haDmg, int hdDefese, int hdLevel) {
+        return haDmg - hdDefese - hdLevel;
+    }
+
+    void heroLevelUp(Hero hero) {
+        System.out.println("Your Hero Level up!!!");
+        hero.heroLevel++;
+        hero.heroHP += 20;
+        hero.heroAttackPower += 5;
+        hero.heroDefense += 3;
+    }
+
+    void printHeroStats(Hero hero) {
+        System.out.println("Name: " + hero.heroName);
+        System.out.println("Level: " + hero.heroLevel);
+        System.out.println("HP: " + hero.heroHP);
+        System.out.println("Attack power: " + hero.heroAttackPower);
+        System.out.println("Defensive Rating:" + hero.heroDefense);
+    }
+
+
+
     boolean isPokemonDead(Pokemon[] team, int index) {
         if (team[index].hp <= 0){
             return true;
