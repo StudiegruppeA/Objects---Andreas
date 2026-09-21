@@ -1,4 +1,4 @@
-package Level1;
+package Level1ClassesAndObjectsBasics;
 
 import java.util.Scanner;
 public class Level1ClassesAndObjectsBasics {
