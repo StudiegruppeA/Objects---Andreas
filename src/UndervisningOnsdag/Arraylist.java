@@ -15,6 +15,7 @@ public class Arraylist {
     //= new arraylist<String>(); = creating a new list with this thing
     //car.add("test") Here i am adding that to the list.
 
+
     Scanner input = new Scanner(System.in);
     int userInput = 0;
 
