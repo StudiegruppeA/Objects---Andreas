@@ -48,10 +48,8 @@ public class Team {
                     target.players[i] = target.players[i + 1];
                     target.players[i + 1] = null;
                 }
-
             }
         }
-
     }
 
     void victoryMsg() {
@@ -63,10 +61,6 @@ public class Team {
             }
             System.out.println("- " + p.name);
         }
-    }
-
-    void takeDmg(int dmg) {
-
     }
 
     int getAliveCount() {

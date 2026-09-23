@@ -4,7 +4,7 @@ public class main {
      void main() {
 
           Team t1 = new Team("Xg", 3);
-          Team t2 = new Team("Falcons", 4);
+          Team t2 = new Team("Falcons", 100);
 
           Player p1 = new Player("cri1", 100, 30);
           Player p2 = new Player("Amar", 120, 90);
