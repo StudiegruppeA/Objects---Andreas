@@ -34,8 +34,10 @@ public class Main {
 
 
 
-        Product.findMostExpensive(array);
+        //Product.findMostExpensive(array);
 
-        Product.findBetween(31, 1000, array);
+
+        System.out.println(array.get(0).hasTag(""));
+        //Product.findBetween(31, 1000, array);
     }
 }

@@ -7,7 +7,7 @@ public class main {
     void main() {
         BankAccount b1 = new BankAccount("Andreas", 1000);
         b1.deposit(getAmount());
-        b1.deposit(1000000);
+        b1.deposit(1000);
         b1.printTransactionHistory();
         b1.findLargestX("Deposit");
 
